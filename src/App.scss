@@ -1,0 +1,90 @@
+$oxford-blue: #0b0425;
+$russian-violet: #1c0a5c;
+$white-lily: #e9eeeb;
+
+.conference-container {
+    color: $white-lily;
+    background-image: linear-gradient($oxford-blue, $russian-violet);
+    transition: 300ms;
+
+    header {
+        .location-time {
+            font-weight: 100;
+        }
+    }
+
+    .participant-grid {
+        width: 100%;
+        height: 100%;
+
+        .participant-grid-item {
+            position: relative;
+        }
+
+        .participant-name {
+            width: 100%;
+            font-weight: 700;
+            position: absolute;
+            bottom: 0;
+        }
+    }
+
+    .participant-grid .participant-grid-item.flipped > video {
+        object-fit: cover;
+        width: 100% !important;
+        height: 100% !important;
+        z-index: 0;
+        transform: rotateY(180deg);
+        -webkit-transform: rotateY(180deg); /* Safari and Chrome */
+        -moz-transform: rotateY(180deg); /* Firefox */
+    }
+
+    .conference-controls {
+        width: 100%;
+        height: 9rem;
+        background: transparent;
+        position: absolute;
+        bottom: 0;
+
+        .control-hub {
+
+            .app-controls {
+                width: 33rem;
+            }
+        }
+        
+        .hovering-controls {
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        &:hover .hovering-controls {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .user-help {
+            opacity: 0.5;
+        }
+    }
+}
+
+.conference-enter {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.conference-active {
+    opacity: 1;
+    visibility:visible;
+    transition: opacity 200ms;
+}
+.conference-exit {
+    opacity: 1;
+    visibility:visible;
+}
+.conference-exit-active {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 200ms;
+}
